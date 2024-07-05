@@ -46,7 +46,7 @@ const Footer = () => {
                     <div className="col">
                         <h1 className="text-secondary">C<span className="text-white">ontact us</span></h1>
                         <p className='description'>
-                             Awfis Workspace, First Floor, Chennai-97
+                             RockdrillBorewells-Banglore
                         </p>
                         <p className='description'>Phone: +91 9060312355</p>
                         <p className='description'>Email: ellayaraja667@gmail.com</p>
