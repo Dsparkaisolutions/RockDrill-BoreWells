@@ -1,0 +1,38 @@
+[
+  {
+    "name": "Borewell Groundwater Survey",
+    "price": "47,043",
+    "detail": "Jakarta Garden City Street, Cakung. Pulo Gadung, Jakarta Timur, DKI Jakarta",
+    "image": "./r11.jpeg"
+  },
+  {
+    "name": " Tube Well Drilling",
+    "price": "66,353",
+    "detail": "Pahlawan Stremmmmmmmmmmmmmmmmmmet XVII No.215, Cinangka, Sawangan, Depok, Jawa Barat",
+    "image": "./r12.jpeg"
+  },
+  {
+    "name": "Water well Drilling",
+    "price": "35,853",
+    "detail": "Ruko Puri Indah Residence Block A7, Lingkar Street, Ciracas, Serang, Banten",
+    "image": "./r13.jpeg"
+  },
+  {
+    "name": "Borewell Drilling by Robo borewells",
+    "price": "47,043",
+    "detail": "Jakarta Garden City Street, Cakung. Pulo Gadung, Jakarta Timur, DKI Jakarta",
+    "image": "./r14.jpeg"
+  },
+  {
+    "name": "Borewell Drilling by Gas borewells",
+    "price": "66,353",
+    "detail": "Pahlawan Street XVII No.215, Cinangka, Sawangan, Depok, Jawa Barat",
+    "image": "./r15.jpeg"
+  },
+  {
+    "name": "Borewell Camera Scanning",
+    "price": "35,853",
+    "detail": "Ruko Puri Indah Residence Block A7, Lingkar Street, Ciracas, Serang, Banten",
+    "image": "./r16.jpeg"
+  }
+]
