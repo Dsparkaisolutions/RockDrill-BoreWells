@@ -5,9 +5,11 @@ const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    mobile: '',
+    mobilenumber: '',
     enquiry: '',
   });
+
+  const [showPopup, setShowPopup] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -19,15 +21,41 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // handle form submission logic here
-    console.log(formData);
+
+    // Send form data to the PHP backend
+    fetch('http://localhost/RockDrill-BoreWells/src/components/Contact/Contact.php', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: new URLSearchParams(formData).toString(),
+    })
+      .then(response => response.json())
+      .then(data => {
+        if (data.message === "Registered successfully.") {
+          setShowPopup(true);
+          setFormData({
+            name: '',
+            email: '',
+            mobilenumber: '',
+            enquiry: '',
+          });
+          setTimeout(() => {
+            setShowPopup(false);
+          }, 3000);
+        } else {
+          console.error(data.message);
+        }
+      })
+      .catch(error => {
+        console.error('There was an error!', error);
+      });
   };
 
   return (
     <div>
       <section className='c-wrapper'>
-        <div className="paddings innerWidth  c-container">
-          {/* leftside */}
+        <div className="paddings innerWidth c-container">
           <div className="c-left">
             <form onSubmit={handleSubmit} className="contact-form">
               <h2 className='orangeText'>Contact for any Enquiry</h2>
@@ -54,12 +82,12 @@ const Contact = () => {
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="mobile" className='primaryText'>Mobile Number:</label>
+                <label htmlFor="mobilenumber" className='primaryText'>Mobile Number:</label>
                 <input
                   type="tel"
-                  id="mobile"
-                  name="mobile"
-                  value={formData.mobile}
+                  id="mobilenumber"
+                  name="mobilenumber"
+                  value={formData.mobilenumber}
                   onChange={handleChange}
                   required
                 />
@@ -72,7 +100,7 @@ const Contact = () => {
                   value={formData.enquiry}
                   onChange={handleChange}
                   placeholder='up to 500 words'
-                  maxLength="3000" // 500 words is approximately 3000 characters
+                  maxLength="3000"
                   required
                 ></textarea>
               </div>
@@ -80,15 +108,19 @@ const Contact = () => {
             </form>
           </div>
 
-          {/* right-side */}
           <div className="flexCenter c-right">
             <div className="contact-image-container">
               <img src="./rockhomebang.jpeg" alt="contact" />
             </div>
           </div>
-          
         </div>
       </section>
+
+      {showPopup && (
+        <div className="popup">
+          <p>Your enquiry has been sent</p>
+        </div>
+      )}
     </div>
   );
 };
