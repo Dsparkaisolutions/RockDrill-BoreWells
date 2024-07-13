@@ -94,3 +94,30 @@
 .r-buttons>:nth-child(2){
     box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.25);
 }
+
+/* Residencies.css */
+
+@keyframes scroll {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.scroll-container {
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+    position: relative;
+}
+
+.scroll-text {
+    display: inline-block;
+    animation: scroll 30s linear infinite;
+}
+
+.scroll-text span {
+    margin-right: 50px; /* Adjust spacing between the areas */
+}
