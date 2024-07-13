@@ -10,6 +10,7 @@ const Contact = () => {
   });
 
   const [showPopup, setShowPopup] = useState(false);
+  const [popupMessage, setPopupMessage] = useState('');
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -33,19 +34,22 @@ const Contact = () => {
       .then(response => response.json())
       .then(data => {
         if (data.message === "Registered successfully.") {
-          setShowPopup(true);
-          setFormData({
-            name: '',
-            email: '',
-            mobilenumber: '',
-            enquiry: '',
-          });
-          setTimeout(() => {
-            setShowPopup(false);
-          }, 3000);
+          setPopupMessage("Your enquiry has been sent");
+        } else if (data.message === "Details are already stored.") {
+          setPopupMessage("Enquiry has been already received");
         } else {
           console.error(data.message);
         }
+        setShowPopup(true);
+        setFormData({
+          name: '',
+          email: '',
+          mobilenumber: '',
+          enquiry: '',
+        });
+        setTimeout(() => {
+          setShowPopup(false);
+        }, 3000);
       })
       .catch(error => {
         console.error('There was an error!', error);
@@ -118,7 +122,7 @@ const Contact = () => {
 
       {showPopup && (
         <div className="popup">
-          <p>Your enquiry has been sent</p>
+          <p>{popupMessage}</p>
         </div>
       )}
     </div>
