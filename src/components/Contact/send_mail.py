@@ -5,7 +5,7 @@ from email.mime.multipart import MIMEMultipart
 
 # Email configuration
 sender_email = "datasparkaisolutions@gmail.com"  # Update with your email address
-receiver_email = "hradmin@dsparkai.com"  # Update with recipient's email address
+receiver_email = "praveenkumarreddy9866@gmail.com"  # Update with recipient's email address
 password = "ixgcutbmhwrhvgsl"  # Update with your email password
 
 # Fetch arguments from command-line (provided by PHP)

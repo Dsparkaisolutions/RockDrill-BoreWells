@@ -51,7 +51,7 @@
         // Proceed with sending email if database insertion was successful
         if ($execval) {
             // Call Python script to send email with arguments
-            $command = "python send_email.py \"$name\" \"$email\" \"$mobilenumber\" \"$enquiry\"";
+            $command = "python send_mail.py \"$name\" \"$email\" \"$mobilenumber\" \"$enquiry\"";
             $output = shell_exec($command); 
             // Assuming send_email.py handles sending and returns relevant output
             
