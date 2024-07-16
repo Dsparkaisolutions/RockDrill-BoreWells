@@ -11,7 +11,7 @@
     $enquiry = $_POST['enquiry'] ?? '';
 
     // Database connection
-    $conn = new mysqli('localhost', 'root', '', 'rockdrillborewell');
+    $conn = new mysqli('localhost', 'root', '', '');
     if ($conn->connect_error) {
         die("Connection Failed : " . $conn->connect_error);
     }
